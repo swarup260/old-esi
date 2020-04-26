@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         indicatorColor: Colors.black,
         fontFamily: 'Rubik',
       ),
-      home: Home(title: appTitle),
+      home: Home(),
       // home: FutureBuilder(
       //   future: isShowWalkThrough(),
       //   initialData: false,
