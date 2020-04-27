@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'SearchLocation.dart';
-import 'widgets/AppDrawer.dart';
 
 class Home extends StatefulWidget {
   @override
