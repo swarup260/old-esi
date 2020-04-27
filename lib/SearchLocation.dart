@@ -67,10 +67,10 @@ class _SearchLocationState extends State<SearchLocation> {
                 onChanged: (value) => _onSelectedLGA(value),
                 value: _selectedLGA,
               ),
+              SizedBox(height: 10),
               Center(
                 child: RaisedButton(
                   color: Colors.green,
-                  shape: StadiumBorder(),
                   child: Text('Search'),
                   onPressed: () {
                     Navigator.push(
