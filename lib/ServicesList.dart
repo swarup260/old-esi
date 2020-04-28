@@ -37,138 +37,45 @@ class _ServicesListState extends State<ServicesList> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Essential Services India"),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                showSearch(
-                  context : context,
-                  delegate: ServicesSearch()
-                );
-
-              })
-        ],
       ),
-      body: ListView.separated(
-          padding: const EdgeInsets.all(8),
+      body: ListView.builder(
           itemCount: servicesList.length,
           itemBuilder: (BuildContext context, int index) {
             return Card(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: RichText(
-                    overflow: TextOverflow.ellipsis,
-                    strutStyle: StrutStyle(fontSize: 12.0),
-                    text: TextSpan(
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.bold),
-                        text: this.servicesList[index]),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(left: 8),
-                  child: Text(this.servicesDescription[index],
-                      textAlign: TextAlign.left,
-                      style:
-                          TextStyle(fontWeight: FontWeight.w300, fontSize: 16)),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    GestureDetector(
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          child: Text('View All',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 15)),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ServicesDetails()),
-                          );
-                        })
-                  ],
-                )
-              ],
-            ));
-          },
-          separatorBuilder: (BuildContext context, int index) =>
-              const Divider()),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 2.0,
+              margin: const EdgeInsets.all(8.0),
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ServicesDetails()),
+                  );
+                },
+                leading: Icon(Icons.satellite),
+                title: Padding(
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    child: Text(servicesList[index],
+                        style: TextStyle(fontWeight: FontWeight.bold))),
+                subtitle: Padding(
+                    padding: const EdgeInsets.only(bottom: 5.0),
+                    child: Text(servicesDescription[index],
+                        style: TextStyle(fontWeight: FontWeight.w300))),
+                isThreeLine: true,
+                trailing: Container(child: Icon(Icons.arrow_forward_ios)),
+              ),
+            );
+          }),
       drawer: AppDrawer(),
       bottomNavigationBar: new Container(
         height: 60.0,
         child: AdmobBanner(
-                  adUnitId: getBannerAdUnitId(bannerAdType.BANNER),
-                  adSize: AdmobBannerSize.BANNER,
-                ),
+          adUnitId: getBannerAdUnitId(bannerAdType.BANNER),
+          adSize: AdmobBannerSize.BANNER,
+        ),
       ),
     );
-  }
-}
-
-class ServicesSearch extends SearchDelegate<String> {
-  final servicesList = [
-    'CoVID-19 Testing Lab',
-    'Free Food',
-    'Fundraisers',
-    'Delivery [Vegetables, Fruits, Groceries, Medicines, etc.]',
-    'Hospitals and Centers',
-    'Police',
-    'Government Helpline'
-  ];
-
-  final recent = [
-    'CoVID-19 Testing Lab',
-    'Free Food',
-  ];
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    return [IconButton(icon: Icon(Icons.clear), onPressed: () {
-      query = "";
-    })];
-  }
-
-  @override
-  Widget buildLeading(BuildContext context) {
-    return IconButton(
-      icon: AnimatedIcon(
-          icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
-      onPressed: () {
-        close(context, null);
-      },
-    );
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    return null;
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    final suggestionList =
-        query.isEmpty ? this.recent : this.servicesList.where( (str) => str.startsWith(query)).toList();
-    return ListView.builder(
-        itemBuilder: (context, index) => ListTile(
-              leading: Icon(Icons.accessibility),
-              title: RichText(text: TextSpan(
-                text : suggestionList[index].substring(0 , query.length),
-                style : TextStyle(color : Colors.black , fontWeight :FontWeight.bold),children: [
-                  TextSpan(
-                    text : suggestionList[index].substring(query.length),
-                  style:TextStyle(color : Colors.grey ))
-                ],
-              )),
-            ),
-        itemCount: suggestionList.length);
   }
 }
