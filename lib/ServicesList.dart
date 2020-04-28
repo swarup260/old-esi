@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:admob_flutter/admob_flutter.dart';
 
+import 'api/apiEndpoint.dart';
 import 'ServicesDetails.dart';
 import 'widgets/AppDrawer.dart';
 
@@ -101,6 +103,13 @@ class _ServicesListState extends State<ServicesList> {
           separatorBuilder: (BuildContext context, int index) =>
               const Divider()),
       drawer: AppDrawer(),
+      bottomNavigationBar: new Container(
+        height: 60.0,
+        child: AdmobBanner(
+                  adUnitId: getBannerAdUnitId(bannerAdType.BANNER),
+                  adSize: AdmobBannerSize.BANNER,
+                ),
+      ),
     );
   }
 }

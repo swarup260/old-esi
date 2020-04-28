@@ -6,6 +6,7 @@ const _largeBanner = "ca-app-pub-3940256099942544/6300978111";
 const _mediumBanner = "ca-app-pub-3940256099942544/6300978111";
 const _fullBanner = "ca-app-pub-3940256099942544/6300978111";
 const _leaderboardBanner = "ca-app-pub-3940256099942544/6300978111";
+const _smartBanner = "ca-app-pub-3940256099942544/6300978111";
 
 const _interstitialAd= "ca-app-pub-3940256099942544/1033173712";
 
@@ -27,6 +28,7 @@ enum bannerAdType {
   MEDIUM_RECTANGLE, // 300x250
   FULL_BANNER, // 468x60
   LEADERBOARD, // 728x90
+  SMART_BANNER, // Auto
 }
 
 /* List of Api Endpoint */
@@ -47,6 +49,7 @@ Map<bannerAdType, String> _bannerAdType = {
   bannerAdType.MEDIUM_RECTANGLE: _mediumBanner,
   bannerAdType.FULL_BANNER: _fullBanner,
   bannerAdType.LEADERBOARD: _leaderboardBanner,
+  bannerAdType.SMART_BANNER: _smartBanner,
 };
   
 

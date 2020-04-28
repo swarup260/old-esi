@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:admob_flutter/admob_flutter.dart';
 
+import 'api/apiEndpoint.dart';
 import 'ServicesList.dart';
 import 'resources/StateCityList.dart';
 
@@ -30,58 +32,72 @@ class _SearchLocationState extends State<SearchLocation> {
         elevation: 0.1,
       ),
       body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
-          child: Column(
-            children: <Widget>[
-              Text("ESI",
-                  style: TextStyle(
-                      fontSize: 80,
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+              child: Column(
+                children: <Widget>[
+                  Text("ESI",
+                      style: TextStyle(
+                          fontSize: 80,
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold)),
+                  Text("Essential Services India"),
+                  SizedBox(height: 30),
+                  Image.asset('assets/images/india-flag.png'),
+                  SizedBox(height: 20),
+                  DropdownButton<String>(
+                    isExpanded: true,
+                    items: _states.map((String dropDownStringItem) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem),
+                      );
+                    }).toList(),
+                    onChanged: (value) => _onSelectedState(value),
+                    value: _selectedState,
+                  ),
+                  SizedBox(height: 5),
+                  DropdownButton<String>(
+                    isExpanded: true,
+                    items: _lgas.map((String dropDownStringItem) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem),
+                      );
+                    }).toList(),
+                    // onChanged: (value) => print(value),
+                    onChanged: (value) => _onSelectedLGA(value),
+                    value: _selectedLGA,
+                  ),
+                  SizedBox(height: 10),
+                  Center(
+                    child: RaisedButton(
                       color: Colors.green,
-                      fontWeight: FontWeight.bold)),
-              Text("Essential Services India"),
-              SizedBox(height: 30),
-              Image.asset('assets/images/india-flag.png'),
-              SizedBox(height: 20),
-              DropdownButton<String>(
-                isExpanded: true,
-                items: _states.map((String dropDownStringItem) {
-                  return DropdownMenuItem<String>(
-                    value: dropDownStringItem,
-                    child: Text(dropDownStringItem),
-                  );
-                }).toList(),
-                onChanged: (value) => _onSelectedState(value),
-                value: _selectedState,
+                      child: Text('Search'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ServicesList()),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(height: 5),
-              DropdownButton<String>(
-                isExpanded: true,
-                items: _lgas.map((String dropDownStringItem) {
-                  return DropdownMenuItem<String>(
-                    value: dropDownStringItem,
-                    child: Text(dropDownStringItem),
-                  );
-                }).toList(),
-                // onChanged: (value) => print(value),
-                onChanged: (value) => _onSelectedLGA(value),
-                value: _selectedLGA,
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: RaisedButton(
-                  color: Colors.green,
-                  child: Text('Search'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ServicesList()),
-                    );
-                  },
+            ),
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: AdmobBanner(
+                  adUnitId: getBannerAdUnitId(bannerAdType.LARGE_BANNER),
+                  adSize: AdmobBannerSize.LARGE_BANNER,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
