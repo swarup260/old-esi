@@ -18,6 +18,9 @@ class _SearchLocationState extends State<SearchLocation> {
   String _selectedState = "Choose a state";
   String _selectedLGA = "Choose ..";
 
+  final _formKey = GlobalKey<FormState>();
+  bool _autovalidate = false;
+
   @override
   void initState() {
     _states = List.from(_states)..addAll(repo.getStates());
@@ -46,45 +49,62 @@ class _SearchLocationState extends State<SearchLocation> {
                   Text("Essential Services India"),
                   SizedBox(height: 30),
                   Image.asset('assets/images/india-flag.png'),
-                  SizedBox(height: 20),
-                  DropdownButton<String>(
-                    isExpanded: true,
-                    items: _states.map((String dropDownStringItem) {
-                      return DropdownMenuItem<String>(
-                        value: dropDownStringItem,
-                        child: Text(dropDownStringItem),
-                      );
-                    }).toList(),
-                    onChanged: (value) => _onSelectedState(value),
-                    value: _selectedState,
-                  ),
-                  SizedBox(height: 5),
-                  DropdownButton<String>(
-                    isExpanded: true,
-                    items: _lgas.map((String dropDownStringItem) {
-                      return DropdownMenuItem<String>(
-                        value: dropDownStringItem,
-                        child: Text(dropDownStringItem),
-                      );
-                    }).toList(),
-                    // onChanged: (value) => print(value),
-                    onChanged: (value) => _onSelectedLGA(value),
-                    value: _selectedLGA,
-                  ),
                   SizedBox(height: 10),
-                  Center(
-                    child: RaisedButton(
-                      color: Colors.green,
-                      child: Text('Search'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ServicesList()),
-                        );
-                      },
-                    ),
-                  ),
+                  Form(
+                      key: _formKey,
+                      autovalidate: _autovalidate,
+                      child: Column(
+                        children: <Widget>[
+                          DropdownButtonFormField<String>(
+                            validator: (value) => value == 'Choose a state' ? 'field required' : null,
+                            isExpanded: false,
+                            items: _states.map((String dropDownStringItem) {
+                              return DropdownMenuItem<String>(
+                                value: dropDownStringItem,
+                                child: Text(dropDownStringItem),
+                              );
+                            }).toList(),
+                            onChanged: (value) => _onSelectedState(value),
+                            value: _selectedState,
+                          ),
+                          DropdownButtonFormField<String>(
+                            validator: (value) => value == 'Choose ..' ? 'Please select City.' : null,
+                            isExpanded: false,
+                            items: _lgas.map((String dropDownStringItem) {
+                              return DropdownMenuItem<String>(
+                                value: dropDownStringItem,
+                                child: Text(dropDownStringItem),
+                              );
+                            }).toList(),
+                            // onChanged: (value) => print(value),
+                            onChanged: (value) => _onSelectedLGA(value),
+                            value: _selectedLGA,
+                          ),
+                          SizedBox(height: 15),
+                          Center(
+                            child: RaisedButton(
+                              color: Colors.green,
+                              child: Text('Search'),
+                              onPressed: () {
+                                if (_formKey.currentState.validate()) {
+                                  //form is valid, proceed further
+                                  _formKey.currentState
+                                      .save(); //save once fields are valid, onSaved method invoked for every form fields
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ServicesList()),
+                                  );
+                                } else {
+                                  setState(() {
+                                    _autovalidate = true; //enable realtime validation
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      )),
                 ],
               ),
             ),
