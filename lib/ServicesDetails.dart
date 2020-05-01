@@ -1,34 +1,22 @@
 import 'package:flutter/material.dart';
 
+import 'models/resources.dart';
 import 'widgets/AppDrawer.dart';
 
 class ServicesDetails extends StatefulWidget {
+  ServicesDetails({Key key, @required this.servicesList}) : super(key: key);
+
+  final List<Resource> servicesList;
   @override
-  _ServicesDetailsState createState() => _ServicesDetailsState();
+  _ServicesDetailsState createState() =>
+      _ServicesDetailsState(servicesList: servicesList);
 }
 
 class _ServicesDetailsState extends State<ServicesDetails> {
-  final List<String> servicesList = <String>[
-    'Regional Medical Research Centre (ICMR)',
-    'Rangaraya Medical College',
-    'Amrutha Hastam Charitable Trust',
-    'Sidhartha Medical College',
-    'The Integrated Rural Development of Weaker Sections in India',
-    'Govt General Hospital Kurnool',
-    'Tirupati municipal Corporation'
-  ];
+  _ServicesDetailsState({List<Resource> this.servicesList});
 
-  final List<String> servicesListDes = <String>[
-    "Government approved and supported Testing labs by ICMR",
-    "Government Approved and Supported Testing Lab by ICMR",
-    "Government Approved and Supported Testing Lab by ICMR",
-    "Government Approved and Supported Testing Lab by ICMR",
-    'We are providing free food service to the needy from more than 2 years, now during lockdown we are distributing more than 10000 people daily during lockdown',
-    'We are providing free food service to the needy from more than 2 years, now during lockdown we are distributing more than 10000 people daily during lockdown',
-    'We are providing free food service to the needy from more than 2 years, now during lockdown we are distributing more than 10000 people daily during lockdown'
-  ];
-
-  List<String> filteredList = <String>[];
+  final List<Resource> servicesList;
+  List<Resource> filteredList = [];
 
   bool isExpanded = false;
 
@@ -47,8 +35,9 @@ class _ServicesDetailsState extends State<ServicesDetails> {
 
   void _printLatestValue() {
     setState(() {
-      filteredList =
-          filteredList.where((f) => f.startsWith(myController.text)).toList();
+      filteredList = filteredList
+          .where((Resource f) => f.category.startsWith(myController.text))
+          .toList();
     });
     print(filteredList);
   }
@@ -91,33 +80,13 @@ class _ServicesDetailsState extends State<ServicesDetails> {
                     leading: Icon(Icons.hourglass_full),
                     title: Padding(
                       padding: const EdgeInsets.only(top: 10.0, bottom: 15.0),
-                      child: Text(this.filteredList[index],
+                      child: Text(this.filteredList[index].category,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 15.0)),
                     ),
                     subtitle: Row(
                       children: <Widget>[
-                        InkWell(
-                            onTap: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: <Widget>[
-                              Icon(Icons.call),
-                              Padding(
-                                  padding: const EdgeInsets.only( left: 5.0,bottom: 10.0),
-                                  child: Text('8689886323'))
-                            ])),
-                        SizedBox(
-                          width: 15.0,
-                        ),
-                        InkWell(
-                            onTap: () {},
-                            child: Row(children: <Widget>[
-                              Icon(Icons.call),
-                              Padding(
-                                  padding: const EdgeInsets.only( left: 5.0,bottom: 10.0),
-                                  child: Text('8689886323'))
-                            ]))
+                        
                       ],
                     ),
                     children: <Widget>[
@@ -125,7 +94,9 @@ class _ServicesDetailsState extends State<ServicesDetails> {
                         title: Padding(
                             padding:
                                 const EdgeInsets.only(left: 10.0, top: 10.0),
-                            child: Text(this.servicesListDes[index])),
+                            child: Text(this
+                                .servicesList[index]
+                                .descriptionandorserviceprovided)),
                         subtitle: Padding(
                           padding: const EdgeInsets.only(
                               left: 10.0, bottom: 5.0, top: 10.0),
@@ -134,7 +105,7 @@ class _ServicesDetailsState extends State<ServicesDetails> {
                             SizedBox(
                               width: 5.0,
                             ),
-                            Text('https://web.whatsapp.com/')
+                            Text(this.servicesList[index].contact)
                           ]),
                         ),
                       )

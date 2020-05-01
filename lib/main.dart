@@ -27,17 +27,6 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Rubik',
       ),
       home: Home(),
-      // home: FutureBuilder(
-      //   future: isShowWalkThrough(),
-      //   initialData: false,
-      //   builder: (BuildContext context, AsyncSnapshot snapshot) {
-      //     if (snapshot.data) {
-      //       return Home();
-      //     } else {
-      //       return Walkthrough();
-      //     }
-      //   },
-      // ),
     );
   }
 }

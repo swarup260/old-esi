@@ -1,30 +1,25 @@
+import 'package:esi_essential_services_india/ServicesList.dart';
+import 'package:esi_essential_services_india/api/networkManager.dart';
 import 'package:flutter/material.dart';
 
 import 'SearchLocation.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
 
-// SingleTickerProviderStateMixin is used for animation
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+class Home extends StatelessWidget {
+  const Home({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(title: Text('ESI : Home')),
-      body: SearchLocation(),
-      //drawer: AppDrawer(),
+      body: FutureBuilder(
+        future: getPersistedStateCity(),
+        builder: (BuildContext context ,AsyncSnapshot<Map<String,dynamic>> snapshot){
+          if (snapshot.data.length == 2) {
+            return ServicesList();
+          } else {
+            return SearchLocation();
+          }
+      } ),
     );
   }
 }
