@@ -1,6 +1,6 @@
-//const _baseUrl = "sharebuddy-api.herokuapp.com";
-const _appId = "ca-app-pub-3940256099942544~3347511713";
+const _baseUrl = "api.covid19india.org";
 
+const _appId = "ca-app-pub-3940256099942544~3347511713";
 const _banner = "ca-app-pub-3940256099942544/6300978111";
 const _largeBanner = "ca-app-pub-3940256099942544/6300978111";
 const _mediumBanner = "ca-app-pub-3940256099942544/6300978111";
@@ -10,16 +10,12 @@ const _smartBanner = "ca-app-pub-3940256099942544/6300978111";
 
 const _interstitialAd= "ca-app-pub-3940256099942544/1033173712";
 
+const _interval = 5;
+
 /* Api Enum */
-// enum endpoint {
-//   getAllLocation,
-//   getLocationFromTo,
-//   getLocationList,
-//   getLocationFromCurrent,
-//   register,
-//   getToken,
-//   addFeedback,
-// }
+enum endpoint {
+  getResources
+}
 
 /* Admob Enum */
 enum bannerAdType {
@@ -32,15 +28,9 @@ enum bannerAdType {
 }
 
 /* List of Api Endpoint */
-// Map<endpoint, String> _apiEndpoint = {
-//   endpoint.getAllLocation: "/location/getAllLocation",
-//   endpoint.getLocationFromTo: "/location/getLocationFromTo",
-//   endpoint.getLocationList: "/location/getLocationList",
-//   endpoint.getLocationFromCurrent: "/location/getLocationFromCurrent",
-//   endpoint.register: "/user/register",
-//   endpoint.getToken: "/user/getToken",
-//   endpoint.addFeedback: "/user/addFeedback"
-// };
+Map<endpoint, String> _apiEndpoint = {
+  endpoint.getResources: "/resources/resources.json",
+};
 
 /* List of Banner Ads - Admob */
 Map<bannerAdType, String> _bannerAdType = {
@@ -54,8 +44,9 @@ Map<bannerAdType, String> _bannerAdType = {
   
 
 /* Api */
-// String getApiEndpoint(endpoint) => _apiEndpoint[endpoint];
-// String getBaseurl() => _baseUrl;
+String getApiEndpoint(endpoint) => _apiEndpoint[endpoint];
+String getBaseurl() => _baseUrl;
+int getInterval() => _interval;
 
 /*Admob */
 String getAppId() => _appId;
