@@ -30,7 +30,7 @@ Future<bool> setPersistedResources(String resources) async {
 
 Future<String> getPersistedResources() async {
   final SharedPreferences prefs = await _prefs;
-  return prefs.getString('resources');
+  return prefs.getString('resources') ?? "";
 }
 
 Future<bool> setPersistedStateCity(stateCity) async {
@@ -40,7 +40,7 @@ Future<bool> setPersistedStateCity(stateCity) async {
 
 Future<Map<String, dynamic>> getPersistedStateCity() async {
   final SharedPreferences prefs = await _prefs;
-  Map<String, dynamic> stateCity = json.decode(prefs.getString('stateCity'));
+  Map<String, dynamic> stateCity = json.decode(prefs.getString('stateCity') ?? "{}");
   return stateCity;
 }
 
