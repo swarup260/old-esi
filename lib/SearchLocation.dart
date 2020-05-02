@@ -1,3 +1,4 @@
+import 'package:esi_essential_services_india/api/networkManager.dart';
 import 'package:flutter/material.dart';
 import 'package:admob_flutter/admob_flutter.dart';
 
@@ -56,7 +57,9 @@ class _SearchLocationState extends State<SearchLocation> {
                       child: Column(
                         children: <Widget>[
                           DropdownButtonFormField<String>(
-                            validator: (value) => value == 'Choose a state' ? 'field required' : null,
+                            validator: (value) => value == 'Choose a state'
+                                ? 'field required'
+                                : null,
                             isExpanded: false,
                             items: _states.map((String dropDownStringItem) {
                               return DropdownMenuItem<String>(
@@ -68,7 +71,9 @@ class _SearchLocationState extends State<SearchLocation> {
                             value: _selectedState,
                           ),
                           DropdownButtonFormField<String>(
-                            validator: (value) => value == 'Choose ..' ? 'Please select City.' : null,
+                            validator: (value) => value == 'Choose ..'
+                                ? 'Please select City.'
+                                : null,
                             isExpanded: false,
                             items: _lgas.map((String dropDownStringItem) {
                               return DropdownMenuItem<String>(
@@ -85,19 +90,26 @@ class _SearchLocationState extends State<SearchLocation> {
                             child: RaisedButton(
                               color: Colors.green,
                               child: Text('Search'),
-                              onPressed: () {
+                              onPressed: () async {
                                 if (_formKey.currentState.validate()) {
                                   //form is valid, proceed further
                                   _formKey.currentState
                                       .save(); //save once fields are valid, onSaved method invoked for every form fields
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ServicesList()),
-                                  );
+                                  bool flag = await setPersistedStateCity({
+                                    "state": _selectedState,
+                                    "city": _selectedLGA
+                                  });
+                                  if (flag) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ServicesList()),
+                                    );
+                                  }
                                 } else {
                                   setState(() {
-                                    _autovalidate = true; //enable realtime validation
+                                    _autovalidate =
+                                        true; //enable realtime validation
                                   });
                                 }
                               },
