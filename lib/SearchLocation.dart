@@ -1,4 +1,5 @@
 import 'package:esi_essential_services_india/api/networkManager.dart';
+import 'package:esi_essential_services_india/widgets/AppDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:admob_flutter/admob_flutter.dart';
 
@@ -35,6 +36,7 @@ class _SearchLocationState extends State<SearchLocation> {
         title: Text(''),
         elevation: 0.1,
       ),
+      drawer: AppDrawer(),
       body: SafeArea(
         child: Column(
           children: <Widget>[
