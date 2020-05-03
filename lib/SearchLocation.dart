@@ -44,11 +44,11 @@ class _SearchLocationState extends State<SearchLocation> {
                 children: <Widget>[
                   Text("ESI",
                       style: TextStyle(
-                          fontSize: 80,
+                          fontSize: 75,
                           color: Colors.green,
                           fontWeight: FontWeight.bold)),
-                  Text("Essential Services India"),
-                  SizedBox(height: 30),
+                  Text("Essential Services India", style: TextStyle(fontWeight: FontWeight.bold )),
+                  SizedBox(height: 20),
                   Image.asset('assets/images/india-flag.png'),
                   SizedBox(height: 10),
                   Form(

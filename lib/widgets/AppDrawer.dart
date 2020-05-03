@@ -1,4 +1,8 @@
+import 'package:admob_flutter/admob_flutter.dart';
+import 'package:esi_essential_services_india/api/apiEndpoint.dart';
 import 'package:flutter/material.dart';
+import 'package:esi_essential_services_india/resources/about_us.dart';
+import 'package:esi_essential_services_india/resources/disclaimer.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -25,23 +29,35 @@ class AppDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('About Us'),
+              title: Row(
+                children: <Widget>[
+                  Icon(Icons.info_outline),
+                  Text(' About Us'),
+                ],
+              ),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AboutUsPage()),
+                );
               },
             ),
             ListTile(
-              title: Text('More Info'),
+              title: Row(
+                children: <Widget>[
+                  Icon(Icons.security),
+                  Text(' Disclaimer'),
+                ],
+              ),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DisclaimerPage()),
+                );
               },
-            ),
+            )
           ],
         ),
       );
