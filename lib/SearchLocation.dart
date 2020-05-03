@@ -103,7 +103,7 @@ class _SearchLocationState extends State<SearchLocation> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ServicesList()),
+                                          builder: (context) => ServicesList(city: _selectedLGA,)),
                                     );
                                   }
                                 } else {
