@@ -1,4 +1,3 @@
-import 'package:esi_essential_services_india/SearchLocation.dart';
 import 'package:esi_essential_services_india/api/networkManager.dart';
 import 'package:esi_essential_services_india/models/resources.dart';
 import 'package:flutter/material.dart';
@@ -15,16 +14,16 @@ class ServicesList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Essential Services India"),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SearchLocation()),
-                );
-              })
-        ],
+        // actions: <Widget>[
+        //   IconButton(
+        //       icon: Icon(Icons.arrow_back),
+        //       onPressed: () {
+        //         Navigator.push(
+        //           context,
+        //           MaterialPageRoute(builder: (context) => SearchLocation()),
+        //         );
+        //       })
+        // ],
       ),
       body: FutureBuilder(
           future: getResources(),
@@ -95,7 +94,7 @@ class ServicesListView extends StatelessWidget {
                           style: TextStyle(fontWeight: FontWeight.bold))),
                   subtitle: Padding(
                       padding: const EdgeInsets.only(bottom: 5.0),
-                      child: Text('Category Desprictions',
+                      child: Text('More Info',
                           style: TextStyle(fontWeight: FontWeight.w300))),
                   isThreeLine: true,
                   trailing: Container(child: Icon(Icons.arrow_forward_ios)),

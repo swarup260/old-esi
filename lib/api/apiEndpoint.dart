@@ -59,49 +59,49 @@ String getInterstitialAdUnitId() => _interstitialAd;
 
 Map <String,dynamic> categoryInformation = {
   "Accommodation and Shelter Homes" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/accommodation_and_shelter_homes.png'),
   },
   "Ambulance" : {
-    "icon" : Icon(Icons.card_membership),
+    "icon" : Image.asset('assets/icons/ambulance.png'),
   },
   "CoVID-19 Testing Lab" : {
-    "icon" : Icon(Icons.label),
+    "icon" : Image.asset('assets/icons/lab.png'),
   },
   "Community Kitchen" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/cooking.png'),
   },
   "Delivery [Vegetables, Fruits, Groceries, Medicines, etc.]" : {
-    "icon" : Icon(Icons.font_download),
+    "icon" : Image.asset('assets/icons/grocery.png'),
   },
   "Fire Brigade" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/fire-extinguisher.png'),
   },
   "Free Food" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/free_food.png'),
   },
   "Fundraisers" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/fund.png'),
   },
   "Government Helpline" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/helpline.png'),
   },
   "Hospitals and Centers" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/health.png'),
   },
   "Mental well being and Emotional Support" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/mental-health.png'),
   },
   "Other" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/information.png'),
   },
   "Police" : {
-    "icon" : Icon(Icons.control_point_duplicate),
+    "icon" : Image.asset('assets/icons/police-car.png'),
   },
   "Senior Citizen Support" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/old-man.png'),
   },
   "Transportation" : {
-    "icon" : Icon(Icons.home),
+    "icon" : Image.asset('assets/icons/shipped.png'),
   },
 
 };

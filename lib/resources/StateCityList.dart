@@ -2,27 +2,27 @@ import 'package:esi_essential_services_india/models/state_model.dart';
 
 class StateCityList {
   // http://locationsng-api.herokuapp.com/api/v1/lgas
-  // test() => _nigeria.map((map) => StateModel.fromJson(map));
-  List<Map> getAll() => _nigeria;
+  // test() => _india.map((map) => StateModel.fromJson(map));
+  List<Map> getAll() => _india;
 
-  getLocalByState(String state) => _nigeria
+  getLocalByState(String state) => _india
       .map((map) => StateModel.fromJson(map))
       .where((item) => item.state == state)
       .map((item) => item.lgas)
       .expand((i) => i)
       .toList();
-  // _nigeria.where((list) => list['state'] == state);
+  // _india.where((list) => list['state'] == state);
   // .map((item) => item['lgas'])
   // .expand((i) => i)
   // .toList();
 
-  List<String> getStates() => _nigeria
+  List<String> getStates() => _india
       .map((map) => StateModel.fromJson(map))
       .map((item) => item.state)
       .toList();
-  // _nigeria.map((item) => item['state'].toString()).toList();
+  // _india.map((item) => item['state'].toString()).toList();
 
-  List _nigeria = [
+  List _india = [
     {
       "state": "Andhra Pradesh",
       "alias": "andhra_pradesh",
@@ -472,8 +472,7 @@ class StateCityList {
         'Jalna',
         'Kolhapur',
         'Latur',
-        'Mumbai City',
-        'Mumbai suburban',
+        'Mumbai',
         'Nandurbar',
         'Nanded',
         'Nagpur',

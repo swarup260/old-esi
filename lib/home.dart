@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
         future: getPersistedStateCity(),
         builder: (BuildContext context ,AsyncSnapshot<Map<String,dynamic>> snapshot){
           if (snapshot.data.length == 2) {
-            return ServicesList();
+            return SearchLocation();
           } else {
             return SearchLocation();
           }

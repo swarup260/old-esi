@@ -32,7 +32,7 @@ class _SearchLocationState extends State<SearchLocation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ESI : Location'),
+        title: Text(''),
         elevation: 0.1,
       ),
       body: SafeArea(

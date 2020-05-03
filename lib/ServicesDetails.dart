@@ -1,5 +1,7 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:esi_essential_services_india/api/apiEndpoint.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'models/resources.dart';
 import 'widgets/AppDrawer.dart';
@@ -54,7 +56,7 @@ class _ServicesDetailsState extends State<ServicesDetails> {
     return Scaffold(
       appBar: AppBar(
         title: !showSearchBox
-            ? Text('ESI : LAB')
+            ? Text(this.category)
             : TextField(
                 decoration: InputDecoration(
                     border: InputBorder.none, hintText: 'Enter a search term'),
@@ -93,6 +95,13 @@ class _ServicesDetailsState extends State<ServicesDetails> {
         },
       ),
       drawer: AppDrawer(),
+      bottomNavigationBar: new Container(
+        height: 60.0,
+        child: AdmobBanner(
+          adUnitId: getBannerAdUnitId(bannerAdType.BANNER),
+          adSize: AdmobBannerSize.BANNER,
+        ),
+      ),
     );
   }
 
@@ -146,7 +155,7 @@ class ServiceListTile extends StatelessWidget {
                     children: <Widget>[
                       for (var i = 0; i < contact.length; i++)
                         InkWell(
-                            onTap: () {},
+                            onTap: () { launch("tel://"+contact[i]); },
                             child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
@@ -170,7 +179,7 @@ class ServiceListTile extends StatelessWidget {
                         padding: const EdgeInsets.only(
                             left: 10.0, bottom: 5.0, top: 10.0),
                         child: Row(children: <Widget>[
-                          Icon(Icons.web),
+                          Icon(Icons.insert_link),
                           SizedBox(
                             width: 5.0,
                           ),
