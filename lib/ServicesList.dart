@@ -8,22 +8,13 @@ import 'ServicesDetails.dart';
 import 'widgets/AppDrawer.dart';
 
 class ServicesList extends StatelessWidget {
-  ServicesList({Key key}) : super(key: key);
+  ServicesList({Key key ,@required this.city}) : super(key: key);
+  final String city;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Essential Services India"),
-        // actions: <Widget>[
-        //   IconButton(
-        //       icon: Icon(Icons.arrow_back),
-        //       onPressed: () {
-        //         Navigator.push(
-        //           context,
-        //           MaterialPageRoute(builder: (context) => SearchLocation()),
-        //         );
-        //       })
-        // ],
+        title: Text("Essential Services in"+city),
       ),
       body: FutureBuilder(
           future: getResources(),
@@ -63,10 +54,11 @@ class ServicesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return getUniqueCategory(servicesList).length == 0
+    var uniqueCategory = getUniqueCategory(servicesList);
+        return uniqueCategory.length == 0
         ? Center(child: Text('No Services Found'))
         : ListView.builder(
-            itemCount: getUniqueCategory(servicesList).length,
+            itemCount: uniqueCategory.length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
                 shape: RoundedRectangleBorder(
@@ -80,17 +72,17 @@ class ServicesListView extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => ServicesDetails(
-                                category : getUniqueCategory(servicesList)[index].category,
+                                category : uniqueCategory[index].category,
                                 servicesList: servicesList,
                               )),
                     );
                   },
                   leading: categoryInformation[
-                      getUniqueCategory(servicesList)[index].category]["icon"],
+                      uniqueCategory[index].category]["icon"],
                   title: Padding(
                       padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                       child: Text(
-                          getUniqueCategory(servicesList)[index].category,
+                          uniqueCategory[index].category,
                           style: TextStyle(fontWeight: FontWeight.bold))),
                   subtitle: Padding(
                       padding: const EdgeInsets.only(bottom: 5.0),
