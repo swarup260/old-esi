@@ -44,6 +44,16 @@ Future<Map<String, dynamic>> getPersistedStateCity() async {
   return stateCity;
 }
 
+Future<bool> setPersistedSeenWalkthrough(bool flag) async{
+  final SharedPreferences prefs = await _prefs;
+  return prefs.setBool('seenWalkthrough', flag);
+}
+
+Future<bool> getPersistedSeenWalkthrough() async{
+  final SharedPreferences prefs = await _prefs;
+  return prefs.getBool('seenWalkthrough') ?? false;
+}
+
 // the URL of the Web Server
 String _urlBase = getBaseurl();
 
@@ -61,7 +71,7 @@ Future<List<Resource>> getResources() async {
   List<Resource> resources = [];
   String persistedResource = await getPersistedResources();
   try {
-    // Get the interval check if the Interval time period is over or not
+   /// interval check if the Interval time period is over or not
     int interval = getInterval();
     DateTime now = new DateTime.now();
     int timestamp = await getPersistedTimestamp() ?? 0;
