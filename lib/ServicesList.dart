@@ -14,7 +14,7 @@ class ServicesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Essential Services in"+city),
+        title: Text("Essential Services in "+city),
       ),
       body: FutureBuilder(
           future: getResources(),

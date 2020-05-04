@@ -44,13 +44,14 @@ class _SearchLocationState extends State<SearchLocation> {
               padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
               child: Column(
                 children: <Widget>[
-                  Text("ESI",
-                      style: TextStyle(
-                          fontSize: 75,
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold)),
+                  Image.asset('assets/images/logo.png',height: 120,width: 120,),
+                  // Text("ESI",
+                  //     style: TextStyle(
+                  //         fontSize: 75,
+                  //         color: Colors.green,
+                  //         fontWeight: FontWeight.bold)),
                   Text("Essential Services India", style: TextStyle(fontWeight: FontWeight.bold )),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Image.asset('assets/images/india-flag.png'),
                   SizedBox(height: 10),
                   Form(
@@ -60,7 +61,7 @@ class _SearchLocationState extends State<SearchLocation> {
                         children: <Widget>[
                           DropdownButtonFormField<String>(
                             validator: (value) => value == 'Choose a state'
-                                ? 'field required'
+                                ? 'Please select State.'
                                 : null,
                             isExpanded: false,
                             items: _states.map((String dropDownStringItem) {

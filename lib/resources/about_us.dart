@@ -18,7 +18,7 @@ class AboutUsPage extends StatelessWidget {
             children: <Widget>[
               CircleAvatar(
                 backgroundColor: Color(0xFFf7fbff),
-                backgroundImage: AssetImage('assets/images/india-flag.png'),
+                backgroundImage: AssetImage('assets/images/logo.png'),
                 radius: 80.0,
               ),
               SizedBox(
