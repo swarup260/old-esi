@@ -1,11 +1,11 @@
-import 'package:esi_essential_services_india/api/networkManager.dart';
-import 'package:esi_essential_services_india/widgets/AppDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:admob_flutter/admob_flutter.dart';
 
 import 'api/apiEndpoint.dart';
 import 'ServicesList.dart';
 import 'resources/StateCityList.dart';
+import 'api/networkManager.dart';
+import 'widgets/AppDrawer.dart';
 
 class SearchLocation extends StatefulWidget {
   @override
@@ -44,13 +44,18 @@ class _SearchLocationState extends State<SearchLocation> {
               padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
               child: Column(
                 children: <Widget>[
-                  Image.asset('assets/images/logo.png',height: 120,width: 120,),
+                  Image.asset(
+                    'assets/images/logo.png',
+                    height: 120,
+                    width: 120,
+                  ),
                   // Text("ESI",
                   //     style: TextStyle(
                   //         fontSize: 75,
                   //         color: Colors.green,
                   //         fontWeight: FontWeight.bold)),
-                  Text("Essential Services India", style: TextStyle(fontWeight: FontWeight.bold )),
+                  Text("Essential Services India",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   SizedBox(height: 10),
                   Image.asset('assets/images/india-flag.png'),
                   SizedBox(height: 10),
@@ -106,7 +111,9 @@ class _SearchLocationState extends State<SearchLocation> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ServicesList(city: _selectedLGA,)),
+                                          builder: (context) => ServicesList(
+                                                city: _selectedLGA,
+                                              )),
                                     );
                                   }
                                 } else {

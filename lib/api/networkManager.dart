@@ -1,12 +1,13 @@
 import 'dart:convert';
 
-import 'package:esi_essential_services_india/models/resources.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 /**
  * All Modules 
  */
 import 'package:http/http.dart' as http;
-import 'package:esi_essential_services_india/api/apiEndpoint.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'apiEndpoint.dart';
+import '../models/resources.dart';
+
 
 Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 

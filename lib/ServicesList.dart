@@ -1,29 +1,31 @@
-import 'package:esi_essential_services_india/api/networkManager.dart';
-import 'package:esi_essential_services_india/models/resources.dart';
+import 'package:esi_essential_services_india/SearchLocation.dart';
 import 'package:flutter/material.dart';
 import 'package:admob_flutter/admob_flutter.dart';
 
+import 'api/networkManager.dart';
+import 'models/resources.dart';
 import 'api/apiEndpoint.dart';
 import 'ServicesDetails.dart';
 import 'widgets/AppDrawer.dart';
 
 class ServicesList extends StatelessWidget {
-  ServicesList({Key key ,@required this.city}) : super(key: key);
+  ServicesList({Key key, @required this.city}) : super(key: key);
   final String city;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Essential Services in "+city),
+        title: Text("Essential Services in " + city),
       ),
       body: FutureBuilder(
           future: getResources(),
+          // initialData: <Resource>[],
           builder:
               (BuildContext context, AsyncSnapshot<List<Resource>> snapshot) {
             if (snapshot.hasData) {
               return ServicesListView(servicesList: snapshot.data);
             } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
+              return ErrorWidget();
             }
             return Center(
                 child: SizedBox(
@@ -44,6 +46,40 @@ class ServicesList extends StatelessWidget {
   }
 }
 
+class ErrorWidget extends StatelessWidget {
+  const ErrorWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(padding: const EdgeInsets.all(20) , child: Card(
+        elevation: 5,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const ListTile(
+              leading: Icon(Icons.warning),
+              title: Text('Network Error'),
+              subtitle: Text('Error While Processing the Request'),
+            ),
+            FlatButton(
+              child: const Text('Try Again..'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchLocation()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),),
+    );
+  }
+}
+
 class ServicesListView extends StatelessWidget {
   const ServicesListView({
     Key key,
@@ -55,7 +91,7 @@ class ServicesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var uniqueCategory = getUniqueCategory(servicesList);
-        return uniqueCategory.length == 0
+    return uniqueCategory.length == 0
         ? Center(child: Text('No Services Found'))
         : ListView.builder(
             itemCount: uniqueCategory.length,
@@ -72,17 +108,16 @@ class ServicesListView extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => ServicesDetails(
-                                category : uniqueCategory[index].category,
+                                category: uniqueCategory[index].category,
                                 servicesList: servicesList,
                               )),
                     );
                   },
-                  leading: categoryInformation[
-                      uniqueCategory[index].category]["icon"],
+                  leading: categoryInformation[uniqueCategory[index].category]
+                      ["icon"],
                   title: Padding(
                       padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                      child: Text(
-                          uniqueCategory[index].category,
+                      child: Text(uniqueCategory[index].category,
                           style: TextStyle(fontWeight: FontWeight.bold))),
                   subtitle: Padding(
                       padding: const EdgeInsets.only(bottom: 5.0),

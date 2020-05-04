@@ -1,9 +1,9 @@
-import 'package:esi_essential_services_india/SearchLocation.dart';
-import 'package:esi_essential_services_india/widgets/page_indicator.dart';
 import 'package:flutter/material.dart';
 
 import './models/page_model.dart';
 import './api/networkManager.dart';
+import 'SearchLocation.dart';
+import 'widgets/page_indicator.dart';
 
 class Walkthrough extends StatelessWidget {
   @override
@@ -93,7 +93,9 @@ class WalkthroughBodyState extends State<WalkthroughBody> {
                 onPressed: () {
                   setPersistedSeenWalkthrough(true);
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => SearchLocation()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchLocation()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(

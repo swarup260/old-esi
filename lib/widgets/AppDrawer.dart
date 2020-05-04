@@ -1,8 +1,6 @@
-import 'package:admob_flutter/admob_flutter.dart';
-import 'package:esi_essential_services_india/api/apiEndpoint.dart';
 import 'package:flutter/material.dart';
-import 'package:esi_essential_services_india/resources/about_us.dart';
-import 'package:esi_essential_services_india/resources/disclaimer.dart';
+import '../resources/about_us.dart';
+import '../resources/disclaimer.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
