@@ -25,7 +25,7 @@ class ServicesList extends StatelessWidget {
             if (snapshot.hasData) {
               return ServicesListView(servicesList: snapshot.data);
             } else if (snapshot.hasError) {
-              return ErrorWidget();
+              return NetworkError();
             }
             return Center(
                 child: SizedBox(
@@ -46,39 +46,21 @@ class ServicesList extends StatelessWidget {
   }
 }
 
-class ErrorWidget extends StatelessWidget {
-  const ErrorWidget({
-    Key key,
-  }) : super(key: key);
-
+class NetworkError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(padding: const EdgeInsets.all(20) , child: Card(
-        elevation: 5,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const ListTile(
-              leading: Icon(Icons.warning),
-              title: Text('Network Error'),
-              subtitle: Text('Error While Processing the Request'),
-            ),
-            FlatButton(
-              child: const Text('Try Again..'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SearchLocation()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),),
-    );
+      return Center(heightFactor: 3,child: AlertDialog(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+          Icon(Icons.network_check),
+          Text("No Network")
+        ],),
+        content: Text("No Internet connection.Make sure that Wi-Fi or mobile data is turned on,then try again."),
+      ));
   }
 }
+
 
 class ServicesListView extends StatelessWidget {
   const ServicesListView({
