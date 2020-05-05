@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 const _baseUrl = "api.covid19india.org";
+//Test _appId: ca-app-pub-3940256099942544~3347511713
+//Test _banner: ca-app-pub-3940256099942544/6300978111
 
-const _appId = "ca-app-pub-3940256099942544~3347511713";
-const _banner = "ca-app-pub-3940256099942544/6300978111";
-const _largeBanner = "ca-app-pub-3940256099942544/6300978111";
+const _appId = "ca-app-pub-7185178541812146~1286054251";
+const _banner = "ca-app-pub-7185178541812146/2060063969";
+const _largeBanner = "ca-app-pub-7185178541812146/5720123287";
 const _mediumBanner = "ca-app-pub-3940256099942544/6300978111";
 const _fullBanner = "ca-app-pub-3940256099942544/6300978111";
 const _leaderboardBanner = "ca-app-pub-3940256099942544/6300978111";

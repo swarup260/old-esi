@@ -189,21 +189,14 @@ class StateCityList {
       "state": "Delhi",
       "alias": "delhi",
       "lgas": [
-        'Central Delhi',
-        'East Delhi',
+        'Delhi',
         'New Delhi',
-        'North Delhi',
-        'North East Delhi',
-        'North West Delhi',
-        'South Delhi',
-        'South West Delhi',
-        'West Delhi'
       ]
     },
     {
       "state": "Goa",
       "alias": "goa",
-      "lgas": ['North Goa', 'South Goa']
+      "lgas": ['Bambolim', 'Panaji']
     },
     {
       "state": "Gujarat",
@@ -424,8 +417,8 @@ class StateCityList {
         'Jabalpur',
         'Jhabua',
         'Katni',
-        'Khandwa (East Nimar)',
-        'Khargone (West Nimar)',
+        'Khandwa',
+        'Khargone',
         'Mandla',
         'Mandsaur',
         'Morena',
@@ -549,17 +542,17 @@ class StateCityList {
       ]
     },
     {
-      "state": "Orissa",
-      "alias": "orissa",
+      "state": "Odisha",
+      "alias": "odisha",
       "lgas": [
         'Angul',
-        'Boudh (Bauda)',
+        'Boudh',
         'Bhadrak',
         'Balangir',
-        'Bargarh (Baragarh)',
+        'Bargarh',
         'Balasore',
         'Cuttack',
-        'Debagarh (Deogarh)',
+        'Debagarh',
         'Dhenkanal',
         'Ganjam',
         'Gajapati',
@@ -567,7 +560,7 @@ class StateCityList {
         'Jajpur',
         'Jagatsinghpur',
         'Khordha',
-        'Kendujhar (Keonjhar)',
+        'Kendujhar',
         'Kalahandi',
         'Kandhamal',
         'Koraput',
@@ -580,14 +573,14 @@ class StateCityList {
         'Puri',
         'Rayagada',
         'Sambalpur',
-        'Subarnapur (Sonepur)',
+        'Subarnapur',
         'Sundergarh'
       ]
     },
     {
-      "state": "Pondicherry",
-      "alias": "pondicherry",
-      "lgas": ['Karaikal', 'Mahe', 'Pondicherry', 'Yanam']
+      "state": "Puducherry",
+      "alias": "puducherry",
+      "lgas": ['Karaikal', 'Mahe', 'Puducherry', 'Yanam']
     },
     {
       "state": "Punjab",
@@ -611,7 +604,7 @@ class StateCityList {
         'Pathankot',
         'Patiala',
         'Rupnagar',
-        'Ajitgarh (Mohali)',
+        'Mohali',
         'Sangrur',
         'Nawanshahr',
         'Tarn Taran'
@@ -753,7 +746,7 @@ class StateCityList {
         'Jalaun',
         'Jyotiba Phule Nagar',
         'Jaunpur district',
-        'Ramabai Nagar (Kanpur Dehat)',
+        'Ramabai Nagar',
         'Kannauj',
         'Kanpur',
         'Kaushambi',
@@ -770,7 +763,7 @@ class StateCityList {
         'Mainpuri',
         'Mathura',
         'Muzaffarnagar',
-        'Panchsheel Nagar district (Hapur)',
+        'Panchsheel Nagar district',
         'Pilibhit',
         'Shamli',
         'Pratapgarh',

@@ -49,18 +49,18 @@ class ServicesList extends StatelessWidget {
 class NetworkError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-      return Center(heightFactor: 3,child: AlertDialog(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-          Icon(Icons.network_check),
-          Text("No Network")
-        ],),
-        content: Text("No Internet connection.Make sure that Wi-Fi or mobile data is turned on,then try again."),
-      ));
+    return Center(
+        heightFactor: 3,
+        child: AlertDialog(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[Icon(Icons.network_check), Text("No Network")],
+          ),
+          content: Text(
+              "No Internet connection.Make sure that Wi-Fi or mobile data is turned on,then try again."),
+        ));
   }
 }
-
 
 class ServicesListView extends StatelessWidget {
   const ServicesListView({
@@ -74,7 +74,19 @@ class ServicesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     var uniqueCategory = getUniqueCategory(servicesList);
     return uniqueCategory.length == 0
-        ? Center(child: Text('No Services Found'))
+        ? Center(
+            child: AlertDialog(
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(Icons.block),
+                  Text("No Service Found")
+                ],
+              ),
+              content: Text(
+                  "Sorry, No Services found in your city."),
+            ),
+          )
         : ListView.builder(
             itemCount: uniqueCategory.length,
             itemBuilder: (BuildContext context, int index) {

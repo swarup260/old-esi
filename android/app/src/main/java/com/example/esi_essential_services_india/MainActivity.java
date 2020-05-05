@@ -1,4 +1,4 @@
-package com.example.esi_essential_services_india;
+package com.sharebuddyapp.sharebuddyapp;
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity;

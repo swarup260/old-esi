@@ -128,9 +128,10 @@ class ContactWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Icon(Icons.call),
-                    Padding(
-                        padding: const EdgeInsets.only(left: 5.0, bottom: 10.0 , right: 10.0),
-                        child: Text(contact[i].trim() ))
+                    Text(contact[i].trim()+" "),
+                    // Padding(
+                    //     padding: const EdgeInsets.only(left: 5.0, bottom: 10.0 , right: 10.0),
+                    //     child: Text(contact[i].trim() ))
                   ])),
       ],
     );
@@ -169,7 +170,7 @@ class ServiceDescription extends StatelessWidget {
                       SizedBox(
                         width: 5.0,
                       ),
-                      SizedBox(width: 300 ,child: Text(this.filteredList[index].contact,overflow: TextOverflow.ellipsis),)
+                      SizedBox(width: 300 ,child: Text(this.filteredList[index].contact,overflow: TextOverflow.ellipsis, style: TextStyle(color: Colors.blue),),)
                     ],
                   ),
                 )
