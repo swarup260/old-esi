@@ -7,16 +7,13 @@ class PageModel {
 List<PageModel> pages = [
   PageModel(
     assetImagePath: 'assets/images/walkthrough_1.png',
-    text: '1Want to take up a strength or weight lifting program ',
+    text: 'Select State & City',
   ),
   PageModel(
-    assetImagePath: 'assets/images/walkthrough_1.png',
-    text: 'Crank up the intensity and revitalize your training',
+    assetImagePath: 'assets/images/walkthrough_2.png',
+    text: 'List of services available in your city',
   ),
   PageModel(
-      assetImagePath: 'assets/images/walkthrough_1.png',
-      text: 'Track your progress and get Testing'),
-  PageModel(
-      assetImagePath: 'assets/images/walkthrough_1.png',
-      text: 'Get your Location from .'),
+      assetImagePath: 'assets/images/walkthrough_3.png',
+      text: 'Service contact information'),
 ];
