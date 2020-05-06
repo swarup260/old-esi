@@ -9,7 +9,7 @@ class Walkthrough extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf7fbff),
+      backgroundColor: Colors.green,
       body: WalkthroughBody(),
     );
   }
@@ -89,7 +89,7 @@ class WalkthroughBodyState extends State<WalkthroughBody> {
                 pageLength: pages.length,
               ),
               secondChild: FlatButton(
-                color: Theme.of(context).primaryColor,
+                color: Colors.white,
                 onPressed: () {
                   setPersistedSeenWalkthrough(true);
                   Navigator.push(
@@ -103,7 +103,7 @@ class WalkthroughBodyState extends State<WalkthroughBody> {
                   child: Text(
                     'Get Started',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.green,
                         fontSize: 18.0,
                         fontWeight: FontWeight.w600),
                   ),
@@ -139,7 +139,7 @@ class PageIndicators extends StatelessWidget {
             child: PageViewIndicator(
               controller: pageController,
               pageCount: pageLength,
-              color: Colors.black,
+              color: Colors.white,
             )),
         Align(
           alignment: Alignment.centerRight,
@@ -156,7 +156,7 @@ class PageIndicators extends StatelessWidget {
                 'Skip',
                 textAlign: TextAlign.end,
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontWeight: FontWeight.w700,
                     fontSize: 19.0),
               ),

@@ -97,7 +97,7 @@ class _SearchLocationState extends State<SearchLocation> {
                           Center(
                             child: RaisedButton(
                               color: Colors.green,
-                              child: Text('Search'),
+                              child: Text('Search', style: TextStyle(color: Colors.white),),
                               onPressed: () async {
                                 if (_formKey.currentState.validate()) {
                                   //form is valid, proceed further
