@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const _baseUrl = "api.covid19india.org";
+const _baseUrl = "sb-esi-api.herokuapp.com";
 //Test _appId: ca-app-pub-3940256099942544~3347511713
 //Test _banner: ca-app-pub-3940256099942544/6300978111
 
@@ -33,7 +33,7 @@ enum bannerAdType {
 
 /* List of Api Endpoint */
 Map<endpoint, String> _apiEndpoint = {
-  endpoint.getResources: "/resources/resources.json",
+  endpoint.getResources: "/resources",
 };
 
 /* List of Banner Ads - Admob */
