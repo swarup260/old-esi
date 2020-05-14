@@ -1,4 +1,4 @@
-package com.sharebuddyapp.esi;
+package com.sharebuddyapp.sbesi;
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity;
