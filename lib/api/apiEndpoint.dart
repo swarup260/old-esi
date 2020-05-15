@@ -5,8 +5,8 @@ const _baseUrl = "sb-esi-api.herokuapp.com";
 //Test _banner: ca-app-pub-3940256099942544/6300978111
 
 const _appId = "ca-app-pub-7185178541812146~2452732043";
-const _banner = "ca-app-pub-7185178541812146/6008833673";
-const _largeBanner = "ca-app-pub-7185178541812146/6115810733";
+const _banner = "ca-app-pub-7185178541812146/1181697180";
+const _largeBanner = "ca-app-pub-7185178541812146/9798553803";
 const _mediumBanner = "ca-app-pub-3940256099942544/6300978111";
 const _fullBanner = "ca-app-pub-3940256099942544/6300978111";
 const _leaderboardBanner = "ca-app-pub-3940256099942544/6300978111";
