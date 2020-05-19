@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:admob_flutter/admob_flutter.dart';
+//import 'package:firebase_admob/firebase_admob.dart';
 
 import 'api/apiEndpoint.dart';
 import 'home.dart';
 
 void main() {
   Admob.initialize(getAppId());
+  //FirebaseAdMob.instance.initialize(appId: getAppId());
   runApp(MyApp());
 }
 

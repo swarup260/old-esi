@@ -66,9 +66,6 @@ Map <String,dynamic> categoryInformation = {
   "Ambulance" : {
     "icon" : Image.asset('assets/icons/ambulance.png'),
   },
-  "CoVID-19 Testing Lab" : {
-    "icon" : Image.asset('assets/icons/lab.png'),
-  },
   "Community Kitchen" : {
     "icon" : Image.asset('assets/icons/cooking.png'),
   },

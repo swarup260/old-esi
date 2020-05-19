@@ -45,6 +45,7 @@ class ServicesDetails extends StatelessWidget {
       drawer: AppDrawer(),
       bottomNavigationBar: new Container(
         height: 60.0,
+        color: Colors.white,
         child: AdmobBanner(
           adUnitId: getBannerAdUnitId(bannerAdType.BANNER),
           adSize: AdmobBannerSize.BANNER,
